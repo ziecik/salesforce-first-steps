@@ -1,0 +1,20 @@
+<apex:page docType="html-5.0" controller="SearchingController">
+    <apex:form >
+    	<apex:inputText value="{!searchAcc}" label="InputText"/>
+        <apex:input type="number" value="{!searchNumber}" label="InputNumber" />
+        <apex:commandButton value="Search records" action="{!search}"/>
+		<apex:pageBlock title="Search Result">
+            <apex:pageBlockTable value="{!result}" var="accx">
+             
+             	<apex:column >
+                    <apex:facet name="header">Account Name</apex:facet>
+                    {!accx['name']}
+                </apex:column>
+                <apex:column >
+                	<apex:facet name="header">Number of Contacts</apex:facet>
+                    {!accx['numberOfContacts']}
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
